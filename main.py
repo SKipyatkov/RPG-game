@@ -5,6 +5,8 @@
 import telebot
 from telebot import types
 import time
+import os
+from dotenv import load_dotenv
 import random
 from datetime import datetime, timedelta
 from generator import create_character, get_effective_stats
@@ -16,7 +18,8 @@ from bestiary import MONSTERS
 from items import ITEMS, WEAPONS, ARMORS
 from battle import calculate_damage, is_alive, get_defense, get_attack_bonus
 
-TOKEN = "8791902859:AAEkXtKcdzbISVMX2-rdiIWItIVpJTlX6b4"
+load_dotenv()
+TOKEN = os.getenv("TOKEN")
 bot = telebot.TeleBot(TOKEN)
 
 user_states = {}
